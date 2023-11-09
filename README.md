@@ -38,7 +38,7 @@ fn main() {
 
 1. Make sure you have Java >= 17 installed: Type `java -version` to check if its installed on your system.
 
-2. On the [Releases](https://github.com/ninsix/sage-jda/releases) section download the 7z, then extract it.
+2. On the [Releases](https://github.com/ninsix/sage-jda/releases) section download the Zip file, then extract it.
 
 3. To start **Sage**, go to bin/ folder, then enter on the terminal:
 
