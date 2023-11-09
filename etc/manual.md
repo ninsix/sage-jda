@@ -18,10 +18,26 @@
 	2. Enter the name and confirm install.
 :}
 
-[: start-launcher :] {:
-	### How to start Launcher?
-	Open the terminal and enter the following command:
-	```java -jar launcher.jar```
+[: hello-world-java - Hello world program in Java :] {:
+    ### How to make a hello world program in Java?
+    **Hello world program in Java**
+    ```java
+    public class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello, world!");
+        }
+    }
+    ```
+:}
+    
+[: hello-world-rust - Hello world program in Rust :] {:
+    ### How to make a hello world program in Rust?
+    **Hello world program in Rust**
+    ```rust
+    fn main() {
+        println!("Hello, world!");
+    }
+    ```
 :}
 
 [: hello-world - How to make a hello world program? :] {:
