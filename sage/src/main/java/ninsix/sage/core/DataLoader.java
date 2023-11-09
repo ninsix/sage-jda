@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 public class DataLoader {
     
     public static final String OS_NAME = System.getProperty("os.name");
-    public static final String OS_VERSION = System.getProperty("os.version");
     public static final String OS_ARCH = System.getProperty("os.arch");
     public static final String JAVA_VERSION = System.getProperty("java.version");
     public static final String JAVA_VENDOR = System.getProperty("java.vendor");

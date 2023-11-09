@@ -6,8 +6,6 @@ import static ninsix.sage.core.DataLoader.JAVA_VENDOR;
 import static ninsix.sage.core.DataLoader.JAVA_VERSION;
 import static ninsix.sage.core.DataLoader.OS_ARCH;
 import static ninsix.sage.core.DataLoader.OS_NAME;
-import static ninsix.sage.core.DataLoader.OS_VERSION;
-import ninsix.sage.core.Main;
 import static ninsix.sage.core.Main.NAME;
 import static ninsix.sage.core.Main.VERSION;
 import java.util.List;
@@ -26,6 +24,7 @@ public class CommandManager extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
         // make sure we handle the right command
+        EmbedBuilder embed = new EmbedBuilder();
 
         switch (event.getName()) {
 
@@ -38,29 +37,32 @@ public class CommandManager extends ListenerAdapter {
             }
 
             case "man" -> {
-                EmbedBuilder embed = new EmbedBuilder();
                 String page = event.getOption("page", OptionMapping::getAsString);
                 embed.setDescription(DataLoader.pages.get(page));
                 event.replyEmbeds(embed.build()).queue();
             }
-
+            
             case "info" -> {
-                event.reply(format(String.format("""
-                                                 [%s] Version: %s
-                                                 
-                                                 // System details
-                                                 Java version: %s
-                                                 Java vendor: %s
-                                                 OS Name: %s
-                                                 OS Version: %s
-                                                 OS Arch: %s
-                                                 """, NAME, VERSION, JAVA_VERSION, JAVA_VENDOR, OS_NAME, OS_VERSION, OS_ARCH)
-                )).setEphemeral(false) // reply or acknowledge
-                        .queue(); // Queue both reply and edit
+                embed.setAuthor("Ninsix");
+                
+                embed.addField("Bot details", 
+                        "Bot Name: "+NAME
+                        + "\nBot Version: "+VERSION
+                        , true);
+                
+                embed.addField("Runtime details", 
+                        "Java version: "+JAVA_VERSION
+                        + "\nJava vendor: "+ JAVA_VENDOR
+                        , true);
+                
+                embed.addField("System details", 
+                        "\nOperating System: "+ OS_NAME
+                        + "\nOS Architecture: "+ OS_ARCH
+                        , true);
+                event.replyEmbeds(embed.build()).queue();
             }
             case "reload" -> {
-                EmbedBuilder embed = new EmbedBuilder();
-                embed.setDescription("### Loaded file:\n "+DataLoader.MANUAL);
+                embed.setDescription("### Loaded file:\n " + DataLoader.MANUAL);
                 DataLoader.load_pages(DataLoader.MANUAL);
                 event.replyEmbeds(embed.build()).setEphemeral(true).queue();
             }

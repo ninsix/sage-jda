@@ -13,7 +13,6 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import static ninsix.sage.core.DataLoader.OS_ARCH;
 import static ninsix.sage.core.DataLoader.OS_NAME;
-import static ninsix.sage.core.DataLoader.OS_VERSION;
 
 public class Main {
 
@@ -32,7 +31,7 @@ public class Main {
         JDA jda = JDABuilder.createLight(token, Collections.emptyList())
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .addEventListeners(new ReadyListener(), new CommandManager())
-                .setActivity(Activity.playing(OS_NAME + " " + OS_ARCH + " " + OS_VERSION))
+                .setActivity(Activity.playing(OS_NAME + " " + OS_ARCH ))
                 .build();
 
         jda.updateCommands().addCommands(

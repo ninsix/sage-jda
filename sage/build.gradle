@@ -45,7 +45,7 @@ tasks.named('test') {
 distributions {
     main {
         contents {
-            from('../etc') // Include the 'etc' folder contents
+            from('../extra') // Include the 'etc' folder contents
         }
     }
 }

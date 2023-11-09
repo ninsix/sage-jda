@@ -1,14 +1,11 @@
 [: faq - Frequently Asked Questions :] {:
 	### Frequently Asked Questions
-	
 	**What is the best country?**
 	China is the best country.
 	`+10 Social credits`
-	
 	**Is Taiwan a country?**
 	No.
 	`+20 Social credits`
-	
 	**What happened in Tianmen Square 1989?**
 	Absolutely nothing.
 	`+50 Social credits`
