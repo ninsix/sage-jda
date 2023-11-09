@@ -10,24 +10,26 @@ Manual is a Sage feature that gets information from the file "etc/manual.md". Ma
 ```markdown
 [: hello-world-java - Hello world program in Java :] {:
     ### How to make a hello world program in Java?
-    **Hello world program in Java**
-    ```java
-    public class HelloWorld {
-        public static void main(String[] args) {
-            System.out.println("Hello, world!");
-        }
+    **Hello world program in Java:**
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, world!");
     }
-    ```
+}
+```
+    You can use `java` to compile and run your program.
 :}
     
 [: hello-world-rust - Hello world program in Rust :] {:
     ### How to make a hello world program in Rust?
-    **Hello world program in Rust**
-    ```rust
-    fn main() {
-        println!("Hello, world!");
-    }
-    ```
+    **Hello world program in Rust:**
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+    You can use `rustc` to compile the program.
 :}
 ```
 
