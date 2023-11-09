@@ -27,23 +27,21 @@
 [: hello-world-java - Hello world program in Java :] {:
     ### How to make a hello world program in Java?
     **Hello world program in Java:**
-```java
+    ```java
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, world!");
     }
-}
-```
+}```
     You can use `java` to compile and run your program.
 :}
     
 [: hello-world-rust - Hello world program in Rust :] {:
     ### How to make a hello world program in Rust?
     **Hello world program in Rust:**
-```rust
+    ```rust
 fn main() {
     println!("Hello, world!");
-}
-```
+}```
     You can use `rustc` to compile the program.
 :}
