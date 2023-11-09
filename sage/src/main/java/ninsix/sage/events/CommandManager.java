@@ -10,7 +10,6 @@ import static ninsix.sage.core.DataLoader.OS_VERSION;
 import ninsix.sage.core.Main;
 import static ninsix.sage.core.Main.NAME;
 import static ninsix.sage.core.Main.VERSION;
-import java.awt.Color;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -41,7 +40,6 @@ public class CommandManager extends ListenerAdapter {
             case "man" -> {
                 EmbedBuilder embed = new EmbedBuilder();
                 String page = event.getOption("page", OptionMapping::getAsString);
-                embed.setColor(Color.WHITE);
                 embed.setDescription(DataLoader.pages.get(page));
                 event.replyEmbeds(embed.build()).queue();
             }
@@ -62,19 +60,9 @@ public class CommandManager extends ListenerAdapter {
             }
             case "reload" -> {
                 EmbedBuilder embed = new EmbedBuilder();
-                //embed.setTitle("This is a tilte", null);
                 embed.setDescription("### Loaded file:\n "+DataLoader.MANUAL);
-                //embed.addField("Phrase 1)", "Stuff", false);
-                //embed.addField("Phrase 2)", "Stuff", false);
-
-                embed.setColor(Color.WHITE);
-                
-                embed.setFooter("~ "+Main.NAME);
                 DataLoader.load_pages(DataLoader.MANUAL);
                 event.replyEmbeds(embed.build()).setEphemeral(true).queue();
-                /*event.reply("Loaded")
-                        .setEphemeral(false) // reply or acknowledge
-                        .queue(); // Queue both reply and edit*/
             }
             default -> {
                 event.reply(format("Unknown command"))
