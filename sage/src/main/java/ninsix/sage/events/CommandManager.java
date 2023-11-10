@@ -29,6 +29,7 @@ public class CommandManager extends ListenerAdapter {
         switch (event.getName()) {
 
             case "ping" -> {
+                System.out.println("[  slash  ] Command used: ping");
                 long time = System.currentTimeMillis();
                 event.reply("Pong!").setEphemeral(false) // reply or acknowledge
                         .flatMap(v
@@ -37,24 +38,24 @@ public class CommandManager extends ListenerAdapter {
             }
 
             case "man" -> {
+                System.out.println("[  slash  ] Command used: man");
                 String page = event.getOption("page", OptionMapping::getAsString);
                 embed.setDescription(DataLoader.pages.get(page));
                 event.replyEmbeds(embed.build()).queue();
             }
             
             case "info" -> {
+                System.out.println("[  slash  ] Command used: info");
                 embed.setAuthor("Ninsix");
                 
                 embed.addField("Bot details", 
                         "Bot Name: "+NAME
                         + "\nBot Version: "+VERSION
                         , true);
-                
                 embed.addField("Runtime details", 
                         "Java version: "+JAVA_VERSION
                         + "\nJava vendor: "+ JAVA_VENDOR
                         , true);
-                
                 embed.addField("System details", 
                         "\nOperating System: "+ OS_NAME
                         + "\nOS Architecture: "+ OS_ARCH
@@ -62,11 +63,13 @@ public class CommandManager extends ListenerAdapter {
                 event.replyEmbeds(embed.build()).queue();
             }
             case "reload" -> {
+                System.out.println("[  slash  ] Command used: reload");
                 embed.setDescription("### Loaded file:\n " + DataLoader.MANUAL);
                 DataLoader.load_pages(DataLoader.MANUAL);
                 event.replyEmbeds(embed.build()).setEphemeral(true).queue();
             }
             default -> {
+                System.err.println("[  error  ] Command used: Unknown");
                 event.reply(format("Unknown command"))
                         .setEphemeral(false) // reply or acknowledge
                         .queue(); // Queue both reply and edit

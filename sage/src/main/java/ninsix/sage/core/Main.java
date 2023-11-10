@@ -21,17 +21,18 @@ public class Main {
 
     public static void main(String[] args) {
         final String token = getToken(args);
+        System.out.println("[ success ] Bot token obtained");
         startBot(token);
     }
 
     private static void startBot(final String token) {
-        System.out.println("Starting Sage " + VERSION);
+        System.out.printf("[   bot   ] Starting %s...%n", NAME);
         DataLoader.load_pages(DataLoader.MANUAL);
-        
+
         JDA jda = JDABuilder.createLight(token, Collections.emptyList())
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .addEventListeners(new ReadyListener(), new CommandManager())
-                .setActivity(Activity.playing(OS_NAME + " " + OS_ARCH ))
+                .setActivity(Activity.playing(OS_NAME + " " + OS_ARCH))
                 .build();
 
         jda.updateCommands().addCommands(
@@ -41,27 +42,34 @@ public class Main {
                 Commands.slash("reload", "Reload man pages"),
                 Commands.slash("ping", "Calculate bot ping")
         ).queue();
-        
+
         // Add choices for the "page" option based on the keys of the pages_map
     }
 
     //( Get the bot token from the environment variable
     private static String getToken(String[] args) {
-        if (System.getenv("DISCORD_BOT_TOKEN") == null) {
-            if (args.length < 1) {
-                Scanner input = new Scanner(System.in);
-                if (input.hasNextLine()) {
-                    System.out.printf("Enter bot [%s] token:%n> ", NAME);
-                    return input.nextLine().trim();
-                }
-                input.close();
-            } else {
-                return args[0];
-            }
-        } else {
-            return System.getenv("DISCORD_BOT_TOKEN");
+        System.out.println("[  token  ] Trying to get token");
+        
+        String tokenv = "DISCORD_BOT_TOKEN";
+        if (System.getenv(tokenv) != null) {
+            System.out.println("[  token  ] Got from " + tokenv + " env");
+            return System.getenv(tokenv);
         }
-        System.err.println("Specify the token as an argument or as an environment variable DISCORD_BOT_TOKEN");
+
+        if (args.length >= 1) {
+            System.out.println("[  token  ] Got from argument 1");
+            return args[0];
+        }
+
+        Scanner input = new Scanner(System.in);
+        if (input.hasNextLine()) {
+            System.out.print("[  input  ] Enter bot token:\n> ");
+            return input.nextLine().trim();
+        }
+        System.err.println("[  error  ] Couldn't get input");
+        input.close();
+
+        System.err.println("[  info  ] Specify the token as an argument or as an environment variable "+tokenv);
         System.exit(1);
         return null;
     }
