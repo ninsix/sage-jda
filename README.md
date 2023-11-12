@@ -3,6 +3,8 @@
 This is a JDA discord bot that can be used as a FAQ or help bot, it doesn't need to recompile to update the Manual.
 
 
+![Sage screenshot](/assets/img/showcase.png)
+
 ## Manual
 
 Manual is a Sage feature that gets information from the file "etc/manual.md". Manual uses Markdown, this is an example of `manual.md` content:
@@ -28,9 +30,6 @@ fn main() {
 }```You can use `rustc` to compile the program.
 :}
 ```
-
-
-![Sage screenshot](/assets/img/showcase.png)
 
 ## How to start bot
 
