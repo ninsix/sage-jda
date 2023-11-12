@@ -16,8 +16,7 @@ public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, world!");
     }
-}```
-    You can use `java` to compile and run your program.
+}```You can use `java` to compile and run your program.
 :}
     
 [: hello-world-rust - Hello world program in Rust :] {:
@@ -26,8 +25,7 @@ public class HelloWorld {
     ```rust
 fn main() {
     println!("Hello, world!");
-}```
-    You can use `rustc` to compile the program.
+}```You can use `rustc` to compile the program.
 :}
 ```
 
