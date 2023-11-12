@@ -30,7 +30,7 @@ fn main() {
 ```
 
 
-![Sage screenshot](/img/showcase.png)
+![Sage screenshot](/assets/img/showcase.png)
 
 ## How to start bot
 
