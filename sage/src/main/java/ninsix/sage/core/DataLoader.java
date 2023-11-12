@@ -29,7 +29,7 @@ public class DataLoader {
         manualPages = getMapFromString(fileContent);
     }
 
-    private static HashMap getMapFromString(String input) {
+    private static HashMap<String, String> getMapFromString(String input) {
         Pattern pattern = Pattern.compile("\\[:(.*?):\\] \\{:(.*?):\\}", Pattern.DOTALL);
         Matcher matcher = pattern.matcher(input);
         HashMap<String, String> hashmap = new HashMap<>();
