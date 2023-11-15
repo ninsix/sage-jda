@@ -35,7 +35,7 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'ninsix.sage.core.Main'
-    version = '0.3.0'
+    version = '0.3.1'
     //mainClassName = 'ninsix.sage.core.Main' deprecated
     tasks.distZip.enabled = false
     tasks.distTar.enabled = false
