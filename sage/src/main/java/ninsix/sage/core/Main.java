@@ -17,7 +17,7 @@ import ninsix.sage.core.IO.output;
 public class Main {
 
     public static final String NAME = "Sage";
-    public static final String VERSION = "0.3.0";
+    public static final String VERSION = "0.3.1";
 
     public static void main(String[] args) {
         final String token = getToken(args);
